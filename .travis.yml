@@ -7,3 +7,12 @@ before_install:
 
 script:
   - docker run -e CI=true stephengrider/docker-react npm run test -- --coverage
+
+deploy:
+  provider: azure_web_apps
+  region: "West Europe"
+  app: "docker-react-test01"
+  env: "docker-react"
+  
+  on:
+    branch: dev
